@@ -23,9 +23,9 @@ try {
 
     // orderパラメータの値によってSQL文を変更する
     if ($order === 'desc') {
-        $sql = 'SELECT * FROM books WHERE book_code LIKE :keyword ORDER BY updated_at DESC';
+        $sql = 'SELECT * FROM books WHERE book_name LIKE :keyword ORDER BY updated_at DESC';
     } else {
-        $sql = 'SELECT * FROM books WHERE book_code LIKE :keyword ORDER BY updated_at ASC';
+        $sql = 'SELECT * FROM books WHERE book_name LIKE :keyword ORDER BY updated_at ASC';
     }
 
     $stmt = $pdo->prepare($sql);
@@ -84,8 +84,7 @@ try {
                     </a>
                     <form action="read.php" method="get" class="search-form">
                         <input type="hidden" name="order" value="<?= $order ?>">
-                        <input type="text" class="search-box" placeholder="商品名で検索" name="keyword"
-                            value="<?= $keyword ?>">
+                        <input type="text" class="search-box" placeholder="書籍名で検索" name="keyword" value="<?= $keyword ?>">
                     </form>
                 </div>
                 <a href="create.php" class="btn">書籍登録</a>
